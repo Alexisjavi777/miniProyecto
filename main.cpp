@@ -16,6 +16,7 @@ void buscarProducto(string nombres[], int cantidades[], float precios[], int con
 
 
 int main() {
+    // Declarar arreglos hasta 50 elementos
     string nombres[50];
     int cantidades[50];
     float precios[50];
@@ -31,7 +32,7 @@ int main() {
         cout << "4. Salir" << endl;
         cout << "Seleccione: ";
         cin >> opcion;
-
+        // Validacion del rango de opciones
         while (opcion < 1 || opcion > 4) {
             cout << "Opcion invalida (1-4): ";
             cin >> opcion;
@@ -45,7 +46,7 @@ int main() {
             subMenuReportes(nombres, cantidades, precios, contador);
         }
 
-    } while (opcion != 4);
+    } while (opcion != 4); //Fin
 
     return 0;
 }
@@ -53,7 +54,8 @@ int main() {
 void registrarProducto(string nombres[], int cantidades[], float precios[], int &contador) {
     
     char continuar = 's';
-
+    // El bucle sigue si el usuario desea (s) y hay espacio (menor a 50)
+    // Se usa el operador lógico && para validar ambas condiciones
     while ((continuar == 's' || continuar == 'S') && contador < 50) {
         
         cout << "\nRegistro " << contador + 1 << " de 50" << endl;
@@ -63,14 +65,14 @@ void registrarProducto(string nombres[], int cantidades[], float precios[], int 
         cin >> cantidades[contador];
         cout << "Precio: ";
         cin >> precios[contador];
-
+        // Validación de datos: No se permiten negativos o precio cero
         if (cantidades[contador] < 0 || precios[contador] <= 0) {
             cout << "Datos invalidos. No se guardo." << endl;
         } else {
-            contador++;
+            contador++;// Solo aumentamos el contador si los datos son válidos
             cout << "Guardado." << endl;
         }
-
+        // Desición si preguntamos por mas productos
         if (contador < 50) {
             cout << "Agregar otro? (s/n): ";
             cin >> continuar;
@@ -81,6 +83,7 @@ void registrarProducto(string nombres[], int cantidades[], float precios[], int 
 }
 
 void mostrarInventario(string nombres[], int cantidades[], float precios[], int contador) {
+    // Verificamos si hay datos
     if (contador > 0) {
         cout << "\n=== LISTADO ===" << endl;
         for (int i = 0; i < contador; i++) {
