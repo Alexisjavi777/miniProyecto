@@ -125,3 +125,31 @@ void subMenuReportes(string nombres[], int cantidades[], float precios[], int co
 }
 }
 
+void buscarProducto(string nombres[], int cantidades[], float precios[], int contador) {
+    string buscado;
+    // Iniciamos la bandera en false porque al empezar aún no hemos encontrado nada
+    bool encontrado = false; 
+    
+    cout << "Ingrese el nombre del producto a buscar: ";
+    cin >> buscado;
+
+    // Recorremos el arreglo hasta el límite de productos registrados
+    for (int i = 0; i < contador; i++) {
+        // Comparamos el nombre en la posición 'i' con lo que busca el usuario
+        if (nombres[i] == buscado) {
+            cout << "\n***PRODUCTO ENCONTRADO***" << endl;
+            // Mostramos el índice técnico (i) y la posición visual (i+1)
+            cout << "Posicion en el sistema (arreglo) " << i << " (Posicion en lista " << i + 1 << ")" << endl;
+            cout << "Nombre: " << nombres[i] << endl;
+            cout << "Stock: " << cantidades[i] << " unidades" << endl;
+            cout << "Precio: $" << precios[i] << endl;
+            // Cambiamos la bandera a true porque ya localizamos el elemento en el arreglo
+            encontrado = true; 
+        }
+    }
+    // Si después de revisar todo el arreglo la bandera sigue en 'false', el producto no existe
+    if (encontrado == false) {
+        cout << "El producto '" << buscado << "' no fue hallado en el sistema." << endl;
+    }
+}
+
