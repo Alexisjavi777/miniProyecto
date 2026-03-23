@@ -50,5 +50,34 @@ int main() {
     return 0;
 }
 
+void registrarProducto(string nombres[], int cantidades[], float precios[], int &contador) {
+    
+    char continuar = 's';
+
+    while ((continuar == 's' || continuar == 'S') && contador < 50) {
+        
+        cout << "\nRegistro " << contador + 1 << " de 50" << endl;
+        cout << "Nombre: ";
+        cin >> nombres[contador];
+        cout << "Cantidad: ";
+        cin >> cantidades[contador];
+        cout << "Precio: ";
+        cin >> precios[contador];
+
+        if (cantidades[contador] < 0 || precios[contador] <= 0) {
+            cout << "Datos invalidos. No se guardo." << endl;
+        } else {
+            contador++;
+            cout << "Guardado." << endl;
+        }
+
+        if (contador < 50) {
+            cout << "Agregar otro? (s/n): ";
+            cin >> continuar;
+        } else {
+            cout << "*LIMITE DE 50 ALCANZADO*. Volviendo al menu..." << endl;
+        }
+    } 
+}
 
 
