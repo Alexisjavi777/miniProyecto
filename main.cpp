@@ -80,4 +80,16 @@ void registrarProducto(string nombres[], int cantidades[], float precios[], int 
     } 
 }
 
+void mostrarInventario(string nombres[], int cantidades[], float precios[], int contador) {
+    if (contador > 0) {
+        cout << "\n=== LISTADO ===" << endl;
+        for (int i = 0; i < contador; i++) {
+            cout << i + 1 << ". " << nombres[i] << " | Stock: " << cantidades[i] << " | $" << precios[i] << endl;
+        }
+    } else {
+        cout << "No hay productos para mostrar." << endl;
+    }
+}
+
+
 
