@@ -120,6 +120,8 @@ void subMenuReportes(string nombres[], int cantidades[], float precios[], int co
         buscarProducto(nombres, cantidades, precios, contador); 
     }
     // Si la opcion es 3, el bucle termina y la funcion finaliza sola regresando al main
+    } else {
+        cout << "Debe registrar productos primero." << endl;
 }
 }
 
