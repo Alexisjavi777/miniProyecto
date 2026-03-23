@@ -94,5 +94,32 @@ void mostrarInventario(string nombres[], int cantidades[], float precios[], int 
     }
 }
 
+void subMenuReportes(string nombres[], int cantidades[], float precios[], int contador) {
+    if (contador > 0) {
+    int subOpcion;
+    cout << "\n/*/*/ SUBMENU /*/*/" << endl;
+    cout << "===================" << endl;
+    cout << "1. Valor Total del Inventario" << endl;
+    cout << "2. Buscar Producto por Nombre" << endl;
+    cout << "3. Volver" << endl;
+    cout << "Seleccione: ";
+    cin >> subOpcion;
+    // Validacion rango SUBMENU
+    while (subOpcion < 1 || subOpcion > 3) {
+            cout << "Opcion invalida (1-3): ";
+            cin >> subOpcion;
+        }
 
+    if (subOpcion == 1) {
+        float suma = 0;
+        for (int i = 0; i < contador; i++) {
+            suma += (cantidades[i] * precios[i]);
+        }
+        cout << "Inversion total: $" << suma << endl;
+    } else if (subOpcion == 2) {
+        buscarProducto(nombres, cantidades, precios, contador); 
+    }
+    // Si la opcion es 3, el bucle termina y la funcion finaliza sola regresando al main
+}
+}
 
